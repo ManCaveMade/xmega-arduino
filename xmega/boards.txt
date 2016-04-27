@@ -195,3 +195,17 @@ akafuino.bootloader.file=akafuino/akafuino-boot.hex
 akafuino.bootloader.fuse2=0xBF
 #akafuino.bootloader.fuse4=0xFE
 akafuino.bootloader.fuse5=0xFD
+
+##############################################################
+
+quarkone.name=ManCave Made Quark One
+
+quarkone.build.mcu=atxmega128a4u
+quarkone.build.f_cpu=32000000L
+quarkone.build.core=xmega
+quarkone.build.variant=quarkone
+
+quarkone.upload.tool=avrdude
+quarkone.upload.protocol=avr911
+quarkone.upload.speed=57600
+quarkone.upload.maximum_size=131072
