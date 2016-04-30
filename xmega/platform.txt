@@ -3,15 +3,12 @@
 # --------------------- 
 
 name=Xmega Boards
-version=1.6.2
+version=1.6.3
 
 # AVR compile variables
 # --------------------- 
 
-# Default "compiler.path" is correct
-# no *not* define it here - it's inconsistent across Arduinos for different
-#  platforms - even linux.i686 and linux.x86_64 .... dammit
-#compiler.path={runtime.tools.avr-gcc.path}/bin/
+compiler.path={runtime.ide.path}/hardware/tools/avr/bin/
 #compiler.path.macosx={runtime.ide.path}/hardware/tools/avr/bin/
 compiler.c.cmd=avr-gcc
 compiler.c.flags=-c -g -Os -w -ffunction-sections -fdata-sections -MMD

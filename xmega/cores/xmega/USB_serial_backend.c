@@ -5,18 +5,25 @@
 #include <avr/pgmspace.h>
 #include "USB_usb_xmega.h"
 #include "USB_serial_backend.h"
+#include "pins_arduino.h" //this may include USB descriptors already
 
 /**************************************************************************
  *
  *  Configurable Options
  *
  **************************************************************************/
+//If options are already configured in pins_arduino.h then we can skip
+//some things in this section.
+
 
 // You can change these to give your code its own name.  On Windows,
 // these are only used before an INF file (driver install) is loaded.
-#define STR_MANUFACTURER L"flabbergast"
-#define STR_PRODUCT      L"X-A4U serial"
-
+#if !defined(STR_MANUFACTURER)
+  #define STR_MANUFACTURER L"flabbergast"
+#endif
+#if !defined(STR_PRODUCT)
+  #define STR_PRODUCT      L"X-A4U serial"
+#endif
 // All USB serial devices are supposed to have a serial number
 // (according to Microsoft).  On windows, a new COM port is created
 // for every unique serial/vendor/product number combination.  If
@@ -32,15 +39,19 @@
 // Udev rules (in /etc/udev/rules.d) can define persistent device
 // names linked to this serial number, as well as permissions, owner
 // and group settings.
-#define STR_SERIAL_NUMBER  L"12345"
-
+#if !defined(STR_SERIAL_NUMBER)
+  #define STR_SERIAL_NUMBER  L"12345"
+#endif
 // Mac OS-X and Linux automatically load the correct drivers.  On
 // Windows, even though the driver is supplied by Microsoft, an
 // INF file is needed to load the driver.  These numbers need to
 // match the INF file.
-#define VENDOR_ID               0x03EB
-#define PRODUCT_ID              0x206F
-
+#if !defined(VENDOR_ID)
+  #define VENDOR_ID               0x03EB
+#endif
+#if !defined(PRODUCT_ID)
+  #define PRODUCT_ID              0x206F
+#endif
 // When you write data, it goes into a USB endpoint buffer, which
 // is transmitted to the PC when it becomes full, or after a timeout
 // with no more writes.  Even if you write in exactly packet-size
@@ -48,7 +59,10 @@
 // that tells the PC no more data is expected and it should pass
 // any buffered data to the application that may be waiting.  If
 // you want data sent immediately, call usb_serial_flush_output().
-#define TRANSMIT_FLUSH_TIMEOUT  40   /* in 1/8 milliseconds */
+#if !defined(TRANSMIT_FLUSH_TIMEOUT)
+  #define TRANSMIT_FLUSH_TIMEOUT  40   /* in 1/8 milliseconds */
+#endif
+
 
 /**************************************************************************
  *

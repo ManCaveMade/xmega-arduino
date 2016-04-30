@@ -23,7 +23,11 @@
 
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
-SERIAL_DEFINE(Serial, C, 0);
+#if defined(USB_SERIAL)
+  SERIAL_DEFINE(Serial0, C, 0);
+#else
+  SERIAL_DEFINE(Serial, C, 0);
+#endif
 SERIAL_DEFINE(Serial1, C, 1);
 SERIAL_DEFINE(Serial2, D, 0);
 SERIAL_DEFINE(Serial3, D, 1);

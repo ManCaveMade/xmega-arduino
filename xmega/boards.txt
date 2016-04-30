@@ -198,14 +198,21 @@ akafuino.bootloader.fuse5=0xFD
 
 ##############################################################
 
-quarkone.name=ManCave Made Quark One
+quarkone.name=Quark One (ManCave Made)
 
+quarkone.build.board=XMEGA_QUARK_ONE
 quarkone.build.mcu=atxmega128a4u
 quarkone.build.f_cpu=32000000L
 quarkone.build.core=xmega
 quarkone.build.variant=quarkone
+quarkone.build.usbtype=USB_SERIAL
 
 quarkone.upload.tool=avrdude
 quarkone.upload.protocol=avr911
-quarkone.upload.speed=57600
+quarkone.upload.speed=115200
 quarkone.upload.maximum_size=131072
+
+quarkone.menu.usb.serial=Serial
+quarkone.menu.usb.serial.build.usbtype=USB_SERIAL
+quarkone.menu.usb.none=No USB
+quarkone.menu.usb.none.build.usbtype=USB_NONE
