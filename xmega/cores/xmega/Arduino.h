@@ -165,9 +165,10 @@ extern const uint8_t PROGMEM adc_to_channel_PGM[];
 #define PC 3
 #define PD 4
 #define PE 5
-#define PF 6
-#define PG 7
-#define PH 8
+#define PR 6
+#define PF 7
+#define PG 8
+#define PH 9
 #define PJ 10
 #define PK 11
 #define PL 12

@@ -31,4 +31,4 @@
 SERIAL_DEFINE(Serial1, C, 1);
 SERIAL_DEFINE(Serial2, D, 0);
 SERIAL_DEFINE(Serial3, D, 1);
-SERIAL_DEFINE(Serial4, E, 0);
+SERIAL_DEFINE(Serial4, E, 0); 

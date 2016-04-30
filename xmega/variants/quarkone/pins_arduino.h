@@ -32,7 +32,7 @@
 #define BV0TO7 _BV(0), _BV(1), _BV(2), _BV(3), _BV(4), _BV(5), _BV(6), _BV(7)
 #define BV7TO0 _BV(7), _BV(6), _BV(5), _BV(4), _BV(3), _BV(2), _BV(1), _BV(0)
 
-#define NUM_DIGITAL_PINS            30
+#define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           12
 #define EXTERNAL_NUM_INTERRUPTS     18
 
@@ -66,13 +66,11 @@ static const uint8_t A5 = 5;
 static const uint8_t A6 = 6;
 static const uint8_t A7 = 7;
 
-//R0 and R1 are special and can't be defined in the array below
-static const uint8_t R0 = 30;
-static const uint8_t R1 = 31;
-
 #define Wire xmWireC
 
 #define SPI_PORT	SPIC
+
+#define SerialESP Serial4
 
 // TODO this - what the heck does this do on XMEGA?
 //#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 22) ? (&PCICR) : ((uint8_t *)0))
@@ -92,33 +90,11 @@ const uint16_t PROGMEM port_to_PGM[] = {
 	(uint16_t) &PORTC,
 	(uint16_t) &PORTD,
 	(uint16_t) &PORTE,
+	(uint16_t) &PORTR
 };
 
 const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 		// PORTLIST
-		/*PC,
-		PC,
-		PC,
-		PC,
-		PC,
-		PC,
-		PC,
-		PC,
-		PB,
-		PB,
-		PA,
-		PA,
-		PA,
-		PA,
-		PA,
-		PA,
-		PA,
-		PA,
-		PE,
-		PE,
-		PE,
-		PE,
-		PB,*/
 		REPEAT8(PA), // A0 - A7, 0 - 7
 		PB, //B0, 8
 		PB, //B1
@@ -131,10 +107,12 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 		PD, //D3
 		PD, //D4
 		PD, //D5
-		PE, //E0, 26
-		PE, //E1
-		PE, //E2
-		PE //E3, 29
+		PE, //E0 26 (ESP GPIO2)
+		PE, //E1 27 (ESP GPIO0)
+		PE, //E2 (ESP TXD (Arduino RX))
+		PE, //E3 29 (ESP RXD (Arduino TX))
+		PR, // 30 R0 (ESP RST)
+		PR // 31 R1 (ESP CH_PD)
 };
 
 const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
@@ -169,9 +147,9 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 		_BV( 0 ), // 26 (E) (ESP GPIO2)
 		_BV( 1 ), // (ESP GPIO0)
 		_BV( 2 ), // (ESP TXD (Arduino RX))
-		_BV( 3 ) //29 (ESP RXD (Arduino TX))
-		// 30 R0 (ESP RST)
-		// 31 R1 (ESP CH_PD)
+		_BV( 3 ), //29 (ESP RXD (Arduino TX))
+		_BV( 0 ), // 30 R0 (ESP RST)
+		_BV( 1 )// 31 R1 (ESP CH_PD)
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {

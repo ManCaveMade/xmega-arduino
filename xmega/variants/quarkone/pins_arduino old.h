@@ -171,8 +171,8 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 		_BV( 1 ), // (ESP GPIO0)
 		_BV( 2 ), // (ESP TXD (Arduino RX))
 		_BV( 3 ) //29 (ESP RXD (Arduino TX))
-		// 30 R0 (ESP RST)
-		// 31 R1 (ESP CH_PD)
+		//_BV( 0 ),// 30 R0 (ESP RST)
+		//_BV( 1 ),// 31 R1 (ESP CH_PD)
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
