@@ -99,6 +99,7 @@ int digitalRead(uint8_t);
 int analogRead(uint8_t);
 void analogReference(uint8_t mode);
 void analogWrite(uint8_t, int);
+void analogWritePWMFreq(uint8_t);
 
 unsigned long millis(void);
 unsigned long micros(void);
@@ -211,6 +212,7 @@ extern const uint8_t PROGMEM adc_to_channel_PGM[];
 #define TIMER_D2HB 32
 #define TIMER_D2HC 33
 #define TIMER_D2HD 34
+
 
 #ifdef __cplusplus
 } // extern "C"

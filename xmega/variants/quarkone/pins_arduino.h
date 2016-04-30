@@ -39,6 +39,15 @@
 #define analogInputToDigitalPin(p)  ((p < 12) ? p : -1)
 #define digitalPinHasPWM(p)         (((p) >= 12 && (p) <= 17) || ((p) >= 20 && (p) <= 27)))
 
+//defines for PWM
+// 980hz = 32Mhz / (2 x div x 0xFF)
+#define PWM_490HZ TC_CLKSEL_DIV128_gc
+#define PWM_980HZ  TC_CLKSEL_DIV64_gc
+#define PWM_7843HZ TC_CLKSEL_DIV8_gc
+#define PWM_15686HZ TC_CLKSEL_DIV4_gc
+#define PWM_31373HZ TC_CLKSEL_DIV2_gc
+  //to use the above, #define in the code: PWM_FREQ as one of the above.
+
 static const uint8_t SS    = 16;
 static const uint8_t MOSI  = 17;
 static const uint8_t MISO  = 18;

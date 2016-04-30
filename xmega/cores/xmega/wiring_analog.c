@@ -172,6 +172,8 @@ const uint16_t PROGMEM timer_to_channel_register_PGM[] = {
 // hardware support.  These are defined in the appropriate
 // pins_*.c file.  For the rest of the pins, we default
 // to digital output.
+// Using different frequencies on tc0 and tc1: 
+// #define PWM_FREQ = TC_CLKSEL_DIV2_gc for 31kHz, for example (32Mhz / (2 x DIV x 0xFF)
 void analogWrite(uint8_t pin, int val)
 {
     uint8_t            timer            = digitalPinToTimer(pin);
@@ -191,12 +193,6 @@ void analogWrite(uint8_t pin, int val)
 
     pinMode(pin, OUTPUT);
 
-    /// TODO: Can we run at 31Khz, well above the audible range?
-    /// Issue is whether existing circuits can handle this.
-    /// TODO: Add API to set freq pwm. Default to 1000khz,
-    /// compatible with existing code.
-    /// N = 32Mhz / (2 x freq pwm x PER)
-
     /// TODO: Update pin at waveform top, bottom, or both?
     /// Seems that by doing at top and bottom we can increase the
     /// pwm freq and resolution.
@@ -208,7 +204,11 @@ void analogWrite(uint8_t pin, int val)
     // 976hz = 32Mhz / (2 x 64 x 0xFF)
     if ( tc0 ) {
         tc0->PERBUF = 0xFF;
-        tc0->CTRLA  = TC_CLKSEL_DIV64_gc;
+        #if defined(PWM_FREQ)
+            tc0->CTRLA  = PWM_FREQ;
+        #else
+            tc0->CTRLA  = TC_CLKSEL_DIV64_gc;
+        #endif
 
         /// TODO: Factor out and move to wiring.c init.
         // Dual slope mode.
@@ -216,7 +216,11 @@ void analogWrite(uint8_t pin, int val)
         tc0->CTRLB |= TC0_CCAEN_bm << channel;
     } else if ( tc1 ) {
         tc1->PERBUF  = 0xFF;
-        tc1->CTRLA   = TC_CLKSEL_DIV64_gc;
+        #if defined(PWM_FREQ)
+            tc1->CTRLA  = PWM_FREQ;
+        #else
+            tc1->CTRLA  = TC_CLKSEL_DIV64_gc;
+        #endif
         tc1->CTRLB   = ( tc1->CTRLB & ~TC1_WGMODE_gm ) | TC_WGMODE_DS_B_gc;
         tc1->CTRLB  |= TC1_CCAEN_bm << channel;
     } 
