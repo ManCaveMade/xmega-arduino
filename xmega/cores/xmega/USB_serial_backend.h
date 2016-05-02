@@ -19,8 +19,6 @@ extern volatile size_t cdc_rx_buf_next_char_ptr;
 // next character in the transmit buffer
 extern volatile size_t cdc_tx_buf_next_char_ptr;
 
-#define INTERNAL_SERIAL_START_ADDRESS  offsetof(NVM_PROD_SIGNATURES_t, LOTNUM0)
-#define INTERNAL_SERIAL_LENGTH (8 * (1 + (offsetof(NVM_PROD_SIGNATURES_t, COORDY1) - offsetof(NVM_PROD_SIGNATURES_t, LOTNUM0))))
 
 // *** functions ***
 void usb_serial_clear_constants(void);
@@ -36,8 +34,6 @@ int8_t usb_serial_putchar(uint8_t c);	// transmit a character (flush after)
 int8_t usb_serial_putchar_nowait(uint8_t c);  // transmit a character, do not wait
 size_t usb_serial_write(const uint8_t *buffer, uint16_t size); // transmit a buffer
 void usb_serial_flush_output(void);	// immediately transmit any buffered output
-
-void usb_write_device_serial(void); // sends the device serial number
 
 // serial parameters
 uint32_t usb_serial_get_baud(void);	// get the baud rate
