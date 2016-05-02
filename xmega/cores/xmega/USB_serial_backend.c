@@ -289,7 +289,8 @@ static const struct usb_string_descriptor_struct PROGMEM product_string = {
         3,
         STR_PRODUCT
 };
-static const struct usb_string_descriptor_struct PROGMEM serial_number_string = {
+//This will only get used if we cant read the true serial number
+static const struct usb_string_descriptor_struct serial_number_string = {
         sizeof(STR_SERIAL_NUMBER),
         3,
         STR_SERIAL_NUMBER
@@ -358,6 +359,23 @@ uint8_t ep_tx_buf[CDC_TX_SIZE];
  *  USB stack callbacks
  *
  **************************************************************************/
+
+void usb_write_device_serial(void) {
+  uint8_t serial[INTERNAL_SERIAL_LENGTH];
+  uint16_t address = INTERNAL_SERIAL_START_ADDRESS;
+  uint8_t i = 0;
+
+  for (i; i < INTERNAL_SERIAL_LENGTH; ++i) {
+    NVM_CMD = NVM_CMD_READ_CALIB_ROW_gc;
+    serial[i] = pgm_read_byte((uint8_t *)address);
+    //__asm__ ("lpm %0, Z\n" : "=r" (serial[i]) : "z" (address));
+    //  __asm__ ("lpm \n  mov %0, r0 \n" : "=r" (Result) : "z" (address) : "r0");
+    NVM_CMD = NVM_CMD_NO_OPERATION_gc;
+    address++;
+  }
+
+  usb_serial_write(&serial, INTERNAL_SERIAL_LENGTH);
+}
 
 uint16_t usb_cb_get_descriptor(uint8_t type, uint8_t index, const uint8_t** ptr, uint16_t offset) {
   const void* address = NULL;

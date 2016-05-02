@@ -325,14 +325,17 @@ const uint8_t PROGMEM adc_to_channel_PGM[] = {
 // Udev rules (in /etc/udev/rules.d) can define persistent device
 // names linked to this serial number, as well as permissions, owner
 // and group settings.
-#define STR_SERIAL_NUMBER  L"DEADB" //TODO: Look at getting this from the chip
+
+#define STR_SERIAL_NUMBER  L"DECAFBAD" //TODO: Look at getting this from the chip
 
 // Mac OS-X and Linux automatically load the correct drivers.  On
 // Windows, even though the driver is supplied by Microsoft, an
 // INF file is needed to load the driver.  These numbers need to
 // match the INF file.
-#define VENDOR_ID               0x1d50
-#define PRODUCT_ID              0x60eb
+
+// VID/PID from http://pid.codes/
+#define VENDOR_ID               0x1209
+#define PRODUCT_ID              0xded1
 
 // When you write data, it goes into a USB endpoint buffer, which
 // is transmitted to the PC when it becomes full, or after a timeout
