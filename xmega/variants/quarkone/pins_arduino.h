@@ -55,7 +55,7 @@ static const uint8_t SCK   = 19;
 
 static const uint8_t SDA = 12;
 static const uint8_t SCL = 13;
-static const uint8_t LED_BUILTIN = 9;
+//static const uint8_t LED_BUILTIN = 9;
 
 static const uint8_t A0 = 0;
 static const uint8_t A1 = 1;
@@ -66,11 +66,49 @@ static const uint8_t A5 = 5;
 static const uint8_t A6 = 6;
 static const uint8_t A7 = 7;
 
+//Convenience pin names (corresponding to silkscreen)
+#define PinA0 0
+#define BTN_BUILTIN 0 //this is normally jumpered to RESET but can be PinA0
+#define PinA1 1
+#define PinA2 2
+#define PinA3 3
+#define PinA4 4
+#define PinA5 5
+#define PinA6 6
+#define PinA7 7
+#define PinB0 8
+#define PinB1 9
+#define LED_BUILTIN 9
+#define PinB2 10
+#define PinB3 11
+#define PinC0 12
+#define PinC1 13
+#define PinC2 14
+#define PinC3 15
+#define PinC4 16
+#define PinC5 17
+#define PinC6 18
+#define PinC7 19
+#define PinD0 20
+#define PinD1 21
+#define PinD2 22
+#define PinD3 23
+#define PinD4 24
+#define PinD5 25
+#define PinESPGPIO2 26
+#define PinESPGPIO0 27
+#define PinESPRST 30
+#define PinESPCH_PD 31
+#define PinESPTXD 28
+#define PinESPRXD 29
+
+#define SerialESP Serial4
+
 #define Wire xmWireC
 
 #define SPI_PORT	SPIC
 
-#define SerialESP Serial4
+
 
 // TODO this - what the heck does this do on XMEGA?
 //#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 22) ? (&PCICR) : ((uint8_t *)0))

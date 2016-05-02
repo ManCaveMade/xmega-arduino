@@ -15,18 +15,18 @@
 void InitESP() {
   SerialESP.begin(115200); // The SerialESP keyword is defined for convenience in the library (could use Serial5 too).
 
-  pinMode(26, OUTPUT); // GPIO2
-  pinMode(27, OUTPUT); // GPIO0
-  pinMode(30, OUTPUT); // RST
-  pinMode(31, OUTPUT); // CH_PD
+  pinMode(PinESPGPIO2, OUTPUT); // GPIO2
+  pinMode(PinESPGPIO0, OUTPUT); // GPIO0
+  pinMode(PinESPRST, OUTPUT); // RST
+  pinMode(PinESPCH_PD, OUTPUT); // CH_PD
   
   // Reset the ESP-01 module into normal mode.
-  digitalWrite(31, HIGH);
-  digitalWrite(26, HIGH);
-  digitalWrite(27, HIGH); // Set this LOW for flash mode
-  digitalWrite(30, LOW);
+  digitalWrite(PinESPCH_PD, HIGH);
+  digitalWrite(PinESPGPIO2, HIGH);
+  digitalWrite(PinESPGPIO0, HIGH); // Set this LOW for flash mode
+  digitalWrite(PinESPRST, LOW);
   delay(1);
-  digitalWrite(30, HIGH);
+  digitalWrite(PinESPRST, HIGH);
 }
 
 void setup() {
