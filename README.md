@@ -1,3 +1,9 @@
+# xmega-arudino
+
+Original Author: flabbergast (https://github.com/flabbergast/xmega-arduino). Version 1.6.2
+
+Modified by: Mitchell A. Cox (2 May 2016) (https://github.com/ManCaveMade/xmega-arduino) to add Quark One. Version 1.6.3
+
 # Introduction
 
 This add-on to [Arduino] {at least 1.6.2} adds support for ATMEL's XMEGA
@@ -69,6 +75,10 @@ to `A11` = `B3`.
 
 The pins numbers are described on the [X-A4U-stick] webpage.
 
+### Quark One
+
+Pins are defined as written on the silkscreen on the Quark One. You can refer to them in your code as PinA0, PinB2, etc.
+
 
 
 [Teensyduino]: https://www.pjrc.com/teensy/teensyduino.html
@@ -80,3 +90,4 @@ The pins numbers are described on the [X-A4U-stick] webpage.
 [USB-XMEGA]: https://dfu-programmer.github.io/
 [MattairTech]: https://www.mattairtech.com/
 [MT-DB-X4]: https://www.mattairtech.com/index.php/featured/mt-db-x4.html
+[Quark One]: https://github.com/ManCaveMade
