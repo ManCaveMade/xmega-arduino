@@ -81,20 +81,20 @@ static const uint8_t A7 = 7;
 #define LED_BUILTIN 9
 #define PinB2 10
 #define PinB3 11
-#define PinC0 12
-#define PinC1 13
-#define PinC2 14
-#define PinC3 15
-#define PinC4 16
-#define PinC5 17
+#define PinC0 12 // PWM
+#define PinC1 13 // PWM
+#define PinC2 14 // PWM
+#define PinC3 15 // PWM
+#define PinC4 16 // PWM
+#define PinC5 17 // PWM
 #define PinC6 18
 #define PinC7 19
-#define PinD0 20
-#define PinD1 21
-#define PinD2 22
-#define PinD3 23
-#define PinD4 24
-#define PinD5 25
+#define PinD0 20 // PWM
+#define PinD1 21 // PWM
+#define PinD2 22 // PWM
+#define PinD3 23 // PWM
+#define PinD4 24 // PWM
+#define PinD5 25 // PWM
 #define PinESPGPIO2 26
 #define PinESPGPIO0 27
 #define PinESPRST 30
