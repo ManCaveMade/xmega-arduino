@@ -2,6 +2,7 @@
 #define usb_serial_backend_h__
 
 #include <stdint.h>
+#include <stddef.h>
 
 // *** variables ***
 
@@ -18,8 +19,8 @@ extern volatile size_t cdc_rx_buf_next_char_ptr;
 // next character in the transmit buffer
 extern volatile size_t cdc_tx_buf_next_char_ptr;
 
-// *** functions ***
 
+// *** functions ***
 void usb_serial_clear_constants(void);
 
 // receiving data

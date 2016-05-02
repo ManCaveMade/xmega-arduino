@@ -195,3 +195,47 @@ akafuino.bootloader.file=akafuino/akafuino-boot.hex
 akafuino.bootloader.fuse2=0xBF
 #akafuino.bootloader.fuse4=0xFE
 akafuino.bootloader.fuse5=0xFD
+
+##############################################################
+
+quarkone.name=Quark One (ManCave Made)
+
+menu.UploadSpeed=Upload Speed
+
+quarkone.build.board=XMEGA_QUARK_ONE
+quarkone.build.mcu=atxmega128a4u
+quarkone.build.f_cpu=32000000L
+quarkone.build.core=xmega
+quarkone.build.variant=quarkone
+quarkone.build.usbtype=USB_SERIAL
+
+quarkone.upload.tool=avrdude
+quarkone.upload.protocol=avr911
+quarkone.upload.speed=115200
+quarkone.upload.maximum_size=131072
+
+quarkone.menu.usb.serial=Serial
+quarkone.menu.usb.serial.build.usbtype=USB_SERIAL
+quarkone.menu.usb.none=No USB
+quarkone.menu.usb.none.build.usbtype=USB_NONE
+
+# These dont make much difference at the moment...
+quarkone.menu.UploadSpeed.115200=115200
+quarkone.menu.UploadSpeed.115200.upload.speed=115200
+#quarkone.menu.UploadSpeed.9600=9600
+#quarkone.menu.UploadSpeed.9600.upload.speed=9600
+quarkone.menu.UploadSpeed.57600=57600
+quarkone.menu.UploadSpeed.57600.upload.speed=57600
+quarkone.menu.UploadSpeed.256000.windows=256000
+quarkone.menu.UploadSpeed.256000.upload.speed=256000
+#quarkone.menu.UploadSpeed.230400.linux=230400
+#quarkone.menu.UploadSpeed.230400.macosx=230400
+#quarkone.menu.UploadSpeed.230400.macosx=230400
+#quarkone.menu.UploadSpeed.230400.upload.speed=230400
+#quarkone.menu.UploadSpeed.460800.linux=460800
+#quarkone.menu.UploadSpeed.460800.macosx=460800
+#quarkone.menu.UploadSpeed.460800.upload.speed=460800
+#quarkone.menu.UploadSpeed.512000.windows=512000
+#quarkone.menu.UploadSpeed.512000.upload.speed=512000
+quarkone.menu.UploadSpeed.921600=921600
+quarkone.menu.UploadSpeed.921600.upload.speed=921600
