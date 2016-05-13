@@ -24,7 +24,7 @@ xmega128A4U boards tested).
 
 ## Installation
 
-Download zip (button on the right) and unpack to your `ARDUINO_SKETCHES_FOLDER/hardware`. This is probably in your "My Documents\Arduino" folder in Windows. Restart IDE.
+Download zip (button on the right) and unpack to your `ARDUINO_SKETCHES_FOLDER/hardware`. This is probably in your "My Documents\Arduino\hardware" folder in Windows (create the "hardware" folder if it's not already there so that in the end you have ...\hardware\xmega-arduino). Restart IDE. You should now see some new xmega boards (including the Quark One) in the Boards menu.
 
 ## Usage
 
